@@ -1,4 +1,4 @@
-%% A function to train a neural network
+%A function to train a neural network
 
 function cost = netbp2(neurons, data, labels, Niter,  lr, file)
 
