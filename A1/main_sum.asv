@@ -1,0 +1,54 @@
+function main_sum
+format short
+[x, y] = kahan_sum();
+ks_error = abs(y-x);
+fprintf("%e", ks_error)
+[a, b] = decreasing();
+d_error = abs(b-a);
+fprintf("%e", d_error)
+fprintf("%e")
+
+end
+
+function [apr_sum, acc_sum] = decreasing()
+n = 10000;
+apr_sum = 0;
+acc_sum = 0;
+for i = 1 : n
+    apr_sum = apr_sum + 1/i;
+    acc_sum = vpa(acc_sum + 1/i);
+end
+end
+
+function [apr_sum, acc_sum] = increasing()
+    n = 10000;
+    apr_sum = 0;
+    acc_sum = 0;
+    for i = n : -1 : 1
+        apr_sum = apr_sum + 1/i;
+        acc_sum = vpa(acc_sum + 1/i);
+    end
+end
+
+%Kahan
+function [apr, acc] = kahan_sum()
+n = 10000;
+apr = 0;
+acc = 0;
+c_apr = 0;
+c_acc = 0;
+for i = 1 : n
+    y_apr = 1/i - c_apr;
+    y_acc = vpa(1/i - c_acc);
+
+    t_apr = apr + y_apr;
+    t_acc = vpa(acc + y_acc);
+
+    c_apr = (t_apr - apr) - y_apr;
+    c_acc = vpa((t_acc - acc) - y_acc);
+
+    apr = t_apr;
+    acc = t_acc;
+
+end
+end

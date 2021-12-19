@@ -1,0 +1,33 @@
+
+CXXFLAGS = -O3
+CXX = g++
+
+TESTS = single double longdouble float128 
+
+all: ${TESTS}
+	./single > benchmark.out
+	./double >> benchmark.out
+	./longdouble  >> benchmark.out
+	./float128 >> benchmark.out
+	 
+
+single: linpack.cc
+	$(CXX) ${CXXFLAGS} -DSP $? -o $@
+	 
+double: linpack.cc
+	$(CXX) ${CXXFLAGS} -DDP $? -o $@
+
+longdouble: linpack.cc
+	$(CXX) ${CXXFLAGS} -DLDP $? -o $@
+
+float128: linpack.cc
+	$(CXX) ${CXXFLAGS} -DQP $? -o $@
+
+
+	
+
+
+
+clean: 
+	rm -rf ${TESTS} *.o
+

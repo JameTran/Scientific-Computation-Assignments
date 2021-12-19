@@ -1,0 +1,64 @@
+/nfs/u50/tranj52$ cat benchmark.out
+Memory required:  3914K.
+
+
+LINPACK benchmark
+Single precision
+Digits:  6 
+Array size 1000 X 1000.
+Average rolled and unrolled performance:
+
+    Reps Time(s) DGEFA   DGESL  OVERHEAD    MFLOPS     GFLOPS
+-------------------------------------------------------------
+       8   0.84  94.05%   3.57%   2.38%   1635.772      1.636
+      16   1.68  95.83%   0.00%   4.17%   1666.253      1.666
+      32   3.35  95.22%   1.19%   3.58%   1661.094      1.661
+      64   6.71  94.49%   1.49%   4.02%   1666.253      1.666
+     128  13.42  96.05%   0.22%   3.73%   1661.094      1.661
+
+Memory required:  7824K.
+
+
+LINPACK benchmark
+Double precision
+Digits:  15 
+Array size 1000 X 1000.
+Average rolled and unrolled performance:
+
+    Reps Time(s) DGEFA   DGESL  OVERHEAD    MFLOPS     GFLOPS
+-------------------------------------------------------------
+       8   0.98  94.90%   1.02%   4.08%   1426.950      1.427
+      16   1.96  97.45%   0.51%   2.04%   1397.222      1.397
+      32   3.91  96.68%   1.28%   2.05%   1400.870      1.401
+      64   7.85  97.20%   0.51%   2.29%   1399.044      1.399
+     128  15.68  96.81%   0.38%   2.81%   1408.224      1.408
+
+Memory required:  15645K.
+
+
+LINPACK benchmark
+Long Double precision
+Digits:  18 
+Array size 1000 X 1000.
+Average rolled and unrolled performance:
+
+    Reps Time(s) DGEFA   DGESL  OVERHEAD    MFLOPS     GFLOPS
+-------------------------------------------------------------
+       2   0.67 100.00%   0.00%   0.00%    500.498      0.500
+       4   1.35  97.04%   0.74%   2.22%    508.081      0.508
+       8   2.70  97.41%   1.48%   1.11%    502.372      0.502
+      16   5.38  98.33%   0.37%   1.30%    505.210      0.505
+      32  10.77  98.05%   0.93%   1.02%    503.315      0.503
+
+Memory required:  15645K.
+
+
+LINPACK benchmark
+float128 precision
+Digits:  0 
+Array size 1000 X 1000.
+Average rolled and unrolled performance:
+
+    Reps Time(s) DGEFA   DGESL  OVERHEAD    MFLOPS     GFLOPS
+-------------------------------------------------------------
+       1  22.99  99.26%   0.61%   0.13%      7.303      0.007

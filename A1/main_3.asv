@@ -1,0 +1,64 @@
+function main_3
+a = expsum3(-20.0);
+b = expsum1(-20.0);
+fprintf("The sum of the function order is %e /n", a)
+fprintf("The sum of the function order 2 is %e /n", b)
+input = [-20, -15. -10, -5, -1, 1, 5, 15, 29];
+
+for i: 1 = length(input)
+    
+
+
+end
+
+function s = expsum1(x)
+i = 0;
+sum = 0;
+while 1
+    y = (x.^i)/(factorial(i));
+    i = i + 1;
+    if sum == sum + y
+        break
+    end
+    sum = sum + y; 
+
+    end
+s = sum;
+end
+
+function s = expsum2(x)
+    if x < 0
+        s = 1/expsum1(-x);
+    else 
+        s = expsum1(x);
+    end
+end
+
+function s = expsum3(x)
+i = 0;
+sum_pos = 0;
+sum_neg = 0;
+
+if x < 0
+    while 1
+        y = (x.^i)/(factorial(i));
+        i = i+1;
+        if mod(i, 2) ~= 0 %if it's odd, and therefore negative
+            if sum_neg == sum_neg + y %if the sum won't change
+                break
+            end
+            sum_neg = sum_neg + y;
+        else %if it's even
+            if sum_pos == sum_pos + y %if the sum won't change
+                break
+            end
+        sum_pos = sum_pos + y;
+        end
+    end
+
+    else
+        sum_pos = expsum1(x);
+end
+s = sum_pos + sum_neg;
+
+end
