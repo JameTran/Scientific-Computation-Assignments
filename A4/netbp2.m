@@ -1,3 +1,5 @@
+%% A function to train a neural network
+
 function cost = netbp2(neurons, data, labels, Niter,  lr, file)
 
 %NETBP  Uses backpropagation to train a network 
